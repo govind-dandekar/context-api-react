@@ -68,8 +68,15 @@ function App() {
     });
   }
 
+  // set relevant state and functions as object attributes
+  const ctxValue = {
+    items: shoppingCart.items,
+    addItemToCart: handleAddItemToCart
+  }
+
   return (
-    <CartContext.Provider>
+    // pass state object as value to Provider
+    <CartContext.Provider value={ctxValue}>
       <Header
         cart={shoppingCart}
         onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
